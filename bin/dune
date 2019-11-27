@@ -1,0 +1,3 @@
+(executable
+ (name cctoocamlopt)
+ (libraries bos fmt fpath rresult cmdliner))
