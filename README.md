@@ -15,3 +15,23 @@ more predictable about what is statically linked in your binary, we move all
 TODO:
 * handle `LD_LIBRARY_PATH`
 * tests
+
+Example:
+```sh
+$ dune exec bin/cctoocamlopt.exe -- -L$(opam config var lib)/ocaml-freestanding \
+  -lasmrun -lnolibc -lopenlibm \
+  $(opam config var lib)/mirage-solo5/libmirage-solo5_bindings.a
+-ccopt
+-L/../lib/ocaml-freestanding
+-cclib
+-lasmrun
+-cclib
+-lnolibc
+-cclib
+-lopenlibm
+-ccopt
+/../mirage-solo5/libmirage-solo5_bindings.a
+```
+
+The format of the output wants to be comptatible with `dune`/`%{read-lines:}`
+expansion (one argument per line).
