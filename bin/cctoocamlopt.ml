@@ -60,7 +60,7 @@ let parse_lL_args args =
       else
         let name, value = parse_opt_arg x in
         match name with
-        | "-L" | "-l" ->
+        | "-L" | "--library-directory" | "--library-path" | "-l" | "--library" ->
           ( match value with
             | Some value -> go ((name, value) :: lL_args) other_args args
             | None -> match args with
